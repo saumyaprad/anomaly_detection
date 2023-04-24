@@ -1,0 +1,29 @@
+data:
+  training_data_path: data/raw/training.csv
+  validation_data_path: data/raw/validation.csv
+
+models:
+  isolation_forest:
+    random_state: 42
+    n_estimators: 100
+    max_samples: 0.8
+    contamination: 0.01
+    test_size: 0.2
+
+  dbscan:
+    eps: 0.5
+    min_samples: 5
+    test_size: 0.2
+
+  nn:
+    test_size: 0.2
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.001
+    hidden_layer_size: 32
+    dropout: 0.2
+    random_state: 42
+
+mlflow:
+  tracking_uri: postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/postgres
+  experiment_name: Anomaly_Detection_Experiment
